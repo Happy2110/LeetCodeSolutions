@@ -1,0 +1,52 @@
+/*
+Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).
+Implement the MyQueue class:
+void push(int x) Pushes element x to the back of the queue.
+int pop() Removes the element from the front of the queue and returns it.
+int peek() Returns the element at the front of the queue.
+boolean empty() Returns true if the queue is empty, false otherwise.
+*/
+
+class MyQueue {
+      Stack <Integer> main=new Stack<>();
+        Stack<Integer> aux=new Stack<>();
+    public MyQueue() {
+       
+    }
+    
+    public void push(int x) {
+        if(this.main.size()==0){
+        this.main.push(x);
+        }
+        else{
+            while(this.main.size()!=0){
+
+                this.aux.push(this.main.peek());
+                this.main.pop();
+            }
+            this.main.push(x);
+            while(this.aux.size()!=0){
+
+                this.main.push(this.aux.peek());
+                this.aux.pop();
+            }
+
+        }
+    }
+    
+    public int pop() {
+        int x=this.main.peek();
+        this.main.pop();
+        return x;
+    }
+    
+    public int peek() {
+       return this.main.peek();
+    }
+    
+    public boolean empty() {
+        
+        return this.main.isEmpty() && this.aux.isEmpty();
+    }
+}
+
