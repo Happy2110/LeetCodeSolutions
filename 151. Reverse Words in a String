@@ -1,0 +1,22 @@
+
+//Given an input string s, reverse the order of the words.
+
+
+class Solution {
+    public String reverseWords(String s) {
+     
+      String temp="";
+      
+       String st[]=s.split(" ");
+        for(String i:st)
+        {
+            if(i==""){
+                continue;
+            }
+            temp=i+" "+temp;
+           
+       
+        }
+        return temp.trim();
+    }
+}
