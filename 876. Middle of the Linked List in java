@@ -1,0 +1,25 @@
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        int n=1,mid=0;
+        if(head==null || head.next==null)
+        return head;
+        ListNode temp=head;
+        while(temp.next!=null){
+            n++;
+            temp=temp.next;
+        };
+        temp=head;
+        if(n%2==0)
+        {
+            mid=n/2+1;
+        }
+        else
+        {
+            mid=(n+1)/2;
+        }
+        for(int i=1;i<mid;i++){
+            temp=temp.next;
+        }
+        return temp;
+    }
+}
